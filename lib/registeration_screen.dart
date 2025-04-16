@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class RegisterScreen extends StatefulWidget {
+class RegisterView extends StatefulWidget {
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterViewState extends State<RegisterView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController firstNameController = TextEditingController();
@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           TextField(controller: passwordController, decoration: InputDecoration(labelText: "Password")),
           TextField(controller: firstNameController, decoration: InputDecoration(labelText: "First Name")),
           TextField(controller: lastNameController, decoration: InputDecoration(labelText: "Last Name")),
-          ElevatedButton(onPressed: registerUser, child: Text("Register"))
+          ElevatedButton(onPressed: registerUser, child: Text("Register")),
         ],
       ),
     );
