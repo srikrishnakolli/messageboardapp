@@ -6,7 +6,7 @@ import 'login_screen.dart';
 import 'dashboard.dart';
 import 'user_profile.dart';
 import 'app_settings.dart';
-import 'board_chat_screen.dart'; 
+import 'board_chat_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
