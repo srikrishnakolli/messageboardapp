@@ -15,12 +15,47 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final Color lightButtonColor = Color(0xFFB3E5FC); // Light sky blue
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Message Board App',
-      theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: lightButtonColor,
+            foregroundColor: Colors.black,
+            textStyle: TextStyle(fontSize: 16),
+          ),
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.grey.shade900,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey.shade800,
+          foregroundColor: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: lightButtonColor,
+            foregroundColor: Colors.black,
+            textStyle: TextStyle(fontSize: 16),
+          ),
+        ),
+        drawerTheme: DrawerThemeData(
+          backgroundColor: Colors.grey.shade800,
+        ),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.white70),
+        ),
+      ),
+      themeMode: ThemeMode.system, // 👈 Auto-switch based on device theme
       initialRoute:
           FirebaseAuth.instance.currentUser == null ? '/login' : '/home',
       routes: {
